@@ -1,0 +1,47 @@
+<Architecture>
+
+  <!-- Customer Service -->
+  <Service name='Customer Service'>
+    <Adapter name='Customer Details Application Adapter' application='Customer Details'>
+      <Publish>
+        <Message name='Customer Created'/>
+        <Message name='Customer Updated'/>
+        <Message name='Customer Deleted'/>
+      </Publish>
+    </Adapter>
+  </Service>
+
+  <!-- Loans Service -->
+  <Service name='Loans Service'>
+    <Adapter name='Loans Application Adapter' application='Loans'>
+      <Publish>
+        <Message name='Loan Created'/>
+        <Message name='Loan Updated'/>
+        <Message name='Loan Approved'/>
+      </Publish>
+	  <Subscribe>
+        <Message name='Customer Updated'/>
+        <Message name='Customer Deleted'/>
+	  </Subscribe>
+    </Adapter>
+  </Service>
+  
+  <!-- Accounts Service -->
+  <Service name='Accounts Service'>
+    <Adapter name='Accounts Application Adapter' application='Accounts'>
+      <Publish>
+        <Message name='Account Created'/>
+        <Message name='Account Debited'/>
+        <Message name='Account Credited'/>
+        <Message name='Account Deleted'/>
+      </Publish>
+	  <Subscribe>
+        <Message name='Loan Approved'/>
+        <Message name='Customer Created'/>
+        <Message name='Customer Updated'/>
+        <Message name='Customer Deleted'/>
+	  </Subscribe>
+    </Adapter>
+  </Service>
+
+</Architecture>
