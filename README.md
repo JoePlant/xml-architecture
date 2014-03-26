@@ -1,4 +1,4 @@
 xml-architecture
 ================
 
-A simple message flow architecture xml structure for generating architecture documents
+A simple xml representation for message flow architecture 
