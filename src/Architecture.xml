@@ -24,22 +24,38 @@
         <Message name='Customer Deleted'/>
 	  </Subscribe>
     </Adapter>
+    <Adapter name='Loans Approval Application Adapter' application='Loan Approval'>
+      <Publish>
+        <Message name='Loan Approved'/>
+      </Publish>
+    </Adapter>
+	<Adapter name='Loans Payment Application Adapter' application='Loan Payment'>
+      <Publish>
+        <Message name='Loan Payment'/>
+      </Publish>
+    </Adapter>
   </Service>
   
   <!-- Accounts Service -->
   <Service name='Accounts Service'>
-    <Adapter name='Accounts Application Adapter' application='Accounts'>
+	<Adapter name='Accounts Creation Application Adapter' application='Account Creation'>
       <Publish>
         <Message name='Account Created'/>
-        <Message name='Account Debited'/>
-        <Message name='Account Credited'/>
-        <Message name='Account Deleted'/>
       </Publish>
 	  <Subscribe>
         <Message name='Loan Approved'/>
         <Message name='Customer Created'/>
-        <Message name='Customer Updated'/>
-        <Message name='Customer Deleted'/>
+	  </Subscribe>
+	</Adapter>
+    <Adapter name='Accounts Application Adapter' application='Accounts'>
+      <Publish>
+        <Message name='Account Credited'/>
+        <Message name='Account Debited'/>
+      </Publish>
+	  <Subscribe>
+        <Message name='Account Created'/>
+        <Message name='Loan Approved'/>
+        <Message name='Loan Payment'/>
 	  </Subscribe>
     </Adapter>
   </Service>
