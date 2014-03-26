@@ -6,7 +6,6 @@
       <Publish>
         <Message name='Customer Created'/>
         <Message name='Customer Updated'/>
-        <Message name='Customer Deleted'/>
       </Publish>
     </Adapter>
   </Service>
@@ -21,7 +20,6 @@
       </Publish>
 	  <Subscribe>
         <Message name='Customer Updated'/>
-        <Message name='Customer Deleted'/>
 	  </Subscribe>
     </Adapter>
     <Adapter name='Loans Approval Application Adapter' application='Loan Approval'>
