@@ -73,8 +73,15 @@ Xml
 
 Output
 ===
-Example of the services output
 
+
+Services View
+===
+The Services view show the main services and the messages that are published.
+
+Messages are grouped with the service that publishs them.
 ![Services Output](./doc/Sample/services.png)
 
+
+Services and messages are shown as groups
 ![Services Output](./doc/Sample/services2.png)
