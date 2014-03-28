@@ -75,6 +75,6 @@ Output
 ===
 Example of the services output
 
-![Services Output](./doc/Sample/services.PNG)
+![Services Output](./doc/Sample/services.png)
 
-![Services Output](./doc/Sample/services2.PNG)
+![Services Output](./doc/Sample/services2.png)
