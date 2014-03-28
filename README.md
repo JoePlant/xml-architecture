@@ -83,5 +83,5 @@ Messages are grouped with the service that publishs them.
 ![Services Output](./doc/Sample/services.png)
 
 
-Services and messages are shown as groups
+Services and messages are shown as nodes.
 ![Services Output](./doc/Sample/services2.png)
