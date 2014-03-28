@@ -79,9 +79,20 @@ Services View
 ===
 The Services view show the main services and the messages that are published.
 
-Messages are grouped with the service that publishs them.
-![Services Output](./doc/Sample/services.png)
+Simple Services View shows the connections between the services (but not the messages)
+![Simple Services Output](./doc/Sample/services-simple.png)
+
+Services View shows the connections between the services and the names of the messages
+![Simple Services Output](./doc/Sample/services-label.png)
+
+Services and Messages view shows the services and messages as nodes.
+![Services Output](./doc/Sample/services-node.png)
 
 
-Services and messages are shown as nodes.
-![Services Output](./doc/Sample/services2.png)
+Adapter Views
+===
+Soon...
+
+Messages Views
+===
+Soon...
