@@ -10,6 +10,9 @@ There is a simple sample provided that shows how the xml representation and the 
 
 Xml 
 ===
+
+[Source](./doc/Sample/Sample.xml)
+
 ```xml
 <Architecture>
   <Service name='Customer Service'>
@@ -72,6 +75,6 @@ Output
 ===
 Example of the services output
 
-![Services Output](./doc/Services.PNG)
+![Services Output](./doc/Sample/services.PNG)
 
-![Services Output](./doc/Services2.PNG)
+![Services Output](./doc/Sample/services2.PNG)
