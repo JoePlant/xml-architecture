@@ -1,5 +1,5 @@
 rem @echo off
-set model=Architecture.xml
+set model=.\Output\Architecture.xml
 
 if EXIST Working goto Working_exists
 mkdir Working
