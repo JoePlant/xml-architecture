@@ -7,8 +7,9 @@ So, I constructed an xml view of the architecture and decided to output the arch
 
 A very simple banking architecture is included here to show some of the outputs that can be created.
 
+![Simple Services Output](./doc/Sample/services-label.png)
 
-Sample
+Banking Sample
 ===
 Simple banking scenario with 3 Services Customer, Loans and Accounts and some of the messages that flow between them.
 
