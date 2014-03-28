@@ -1,17 +1,20 @@
 xml-architecture
 ================
 
-A simple xml representation for message flow architecture 
+I recently was given a large pub-sub architecture that was very complicated to understand.  
+
+So, I constructed an xml view of the architecture and decided to output the architecture visually using graphviz.
+
+A very simple banking architecture is included here to show some of the outputs that can be created.
+
 
 Sample
 ===
+Simple banking scenario with 3 Services Customer, Loans and Accounts and some of the messages that flow between them.
 
-There is a simple sample provided that shows how the xml representation and the generated output.
-
-Xml 
+Configuration 
 ===
-
-[Source](./doc/Sample/Sample.xml)
+The xml configuration is pretty easy to understand and can be viewed here: [Source](./doc/Sample/Sample.xml)
 
 ```xml
 <Architecture>
@@ -73,7 +76,7 @@ Xml
 
 Output
 ===
-
+The output from the tool is a set of PNG files generated using GraphViz.
 
 Services View
 ===
@@ -99,3 +102,6 @@ Soon...
 Messages Views
 ===
 Soon...
+
+
+I am not sure if xml-architecture is the right name for this.... will have to think up a better one soon.
