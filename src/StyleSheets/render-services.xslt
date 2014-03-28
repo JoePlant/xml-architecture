@@ -9,6 +9,14 @@
 	<!-- to cluster specify any value that is not empty -->
 	<xsl:param name='cluster'></xsl:param>
 	
+	<!-- default is show messages on labels-->
+	<!-- options are node, label, none, '' -->
+	<xsl:param name='message-format'>label</xsl:param>
+	
+	<xsl:param name='title'>Services</xsl:param>
+	
+	<xsl:param name='direction'>LR</xsl:param>
+	
 	<xsl:variable name="record-color">#EEEEEE</xsl:variable>
 	<xsl:variable name="border-color">#AAAAAA</xsl:variable>
 	<xsl:variable name="background-color">#FFFFFF</xsl:variable>
@@ -33,7 +41,7 @@
 	</xsl:template>
 	
 	<xsl:template match="/Models/Services">
-		<dotml:graph file-name="services" label="Services View" rankdir="LR" fontname="{$fontname}" fontcolor="{$focus-color}" fontsize="{$font-size-h1}" labelloc='t' >			
+		<dotml:graph file-name="services" label="{$title}" rankdir="{$direction}" fontname="{$fontname}" fontsize="{$font-size-h1}" labelloc='t' >			
 			<xsl:apply-templates select='Service' mode='node'/>
 			<xsl:apply-templates select='Service' mode='link'/>
 		</dotml:graph>
@@ -58,22 +66,58 @@
 
 	<xsl:template name='render-service'>
 		<xsl:variable name='service' select='.'/>
-		<dotml:node id='{@id}' style="solid" shape="box" label='{@name}' fillcolor='{$focus-bgcolor}' color="{$focus-color}" fontname="{$fontname}" fontsize="{$font-size-h2}" />
-		<xsl:for-each select='Publish/Message'>
-			<xsl:variable name='message-id' select="concat($service/@id, '_', @id-ref)"/>
-			<dotml:node id="{$message-id}" style="solid" shape="parallelogram" label='{@name}' fillcolor='{$focus-bgcolor}' color="{$message-color}" fontname="{$fontname}" fontsize="{$font-size-h3}" />
-			<dotml:edge from="{$service/@id}" to="{$message-id}" color='{$message-color}' />
-		</xsl:for-each>
+		<dotml:node id='{@id}' style="solid" shape="box" label='{@name}' fillcolor='{$focus-bgcolor}' color="{$focus-color}" 
+		fontname="{$fontname}" fontsize="{$font-size-h2}" fontcolor="{$focus-color}" />
+		
+		<!-- show the messages as nodes? -->
+		<xsl:choose>
+			<xsl:when test="$message-format = 'node'">
+				<xsl:for-each select='Publish/Message'>
+					<xsl:variable name='message-id' select="concat($service/@id, '_', @id-ref)"/>
+					<dotml:node id="{$message-id}" style="solid" shape="ellipse" label='{@name}' 
+					  fillcolor='{$focus-bgcolor}' color="{$message-color}" 
+					  fontname="{$fontname}" fontsize="{$font-size-h3}" fontcolor="{$message-color}"/>
+					<dotml:edge from="{$service/@id}" to="{$message-id}" color='{$message-color}'  />
+				</xsl:for-each>
+			</xsl:when>
+			<xsl:otherwise/>
+		</xsl:choose>
 	</xsl:template>
 	
 	<!-- Render the links from published messages to services -->
 	<xsl:template match='Service' mode='link'>
 		<xsl:comment> Links for <xsl:value-of select='@name'/>  </xsl:comment>
 		<xsl:variable name="service" select='.'/>
-		<xsl:for-each select="ServiceConnections/ServiceConnection[@type='publish']/Message">
-			<xsl:variable name='message-id' select="concat($service/@id, '_', @id-ref)"/>
-			<xsl:variable name='to' select='../@id-ref'/>
-			<dotml:edge from="{$message-id}" to="{$to}" color='{$message-color}' />
+		
+		<xsl:choose>
+			<xsl:when test="$message-format = 'node'">
+				<xsl:for-each select="ServiceConnections/ServiceConnection[@type='publish']/Message">
+					<xsl:variable name='message-id' select="concat($service/@id, '_', @id-ref)"/>
+					<xsl:variable name='to' select='../@id-ref'/>
+					<dotml:edge from="{$message-id}" to="{$to}" color='{$message-color}' />
+				</xsl:for-each>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:for-each select="ServiceConnections/ServiceConnection[@type='publish']">
+					<xsl:variable name='label'>
+						<xsl:if test="$message-format = 'label'">
+							<xsl:call-template name='concat-names'>
+								<xsl:with-param name='nodes' select='Message'/>
+							</xsl:call-template>
+						</xsl:if>
+					</xsl:variable>
+					<dotml:edge from="{$service/@id}" to="{@id-ref}" label='{$label}' 
+					  color="{$message-color}" fontname="{$fontname}" fontcolor="{$message-color}" fontsize="{$font-size-h2}" />
+				</xsl:for-each>				
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	
+	<xsl:template name="concat-names">
+		<xsl:param name="nodes" select='*'/>
+		<xsl:for-each select='$nodes[@name]'>
+			<xsl:if test='position() > 1'>\n</xsl:if>
+			<xsl:value-of select='@name'/>
 		</xsl:for-each>
 	</xsl:template>
 
