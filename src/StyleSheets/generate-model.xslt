@@ -47,11 +47,11 @@
 				select="key('pub-msg-by-name', Adapter/Subscribe/Message/@name)/ancestor::Service" />
 				
 			<xsl:if test='(count($publish-to-services) + count($subscribe-to-services)) > 0'>
-				<xsl:element name='Connections'>
+				<xsl:element name='ServiceConnections'>
 				<xsl:if test='count($publish-to-services) > 0'>
 					<xsl:for-each select='$publish-to-services'>
 						<xsl:variable name='service' select='.'/>
-						<xsl:element name='Connection'>
+						<xsl:element name='ServiceConnection'>
 							<xsl:attribute name='type'>publish</xsl:attribute>
 							<xsl:attribute name='name'><xsl:value-of select='@name'/></xsl:attribute>
 							<xsl:call-template name='service-id'>

@@ -5,6 +5,8 @@
 	
 	<xsl:output method="xml" indent="yes" />
 	
+	<!-- default is not to cluster -->
+	<!-- to cluster specify any value that is not empty -->
 	<xsl:param name='cluster'></xsl:param>
 	
 	<xsl:variable name="record-color">#EEEEEE</xsl:variable>
@@ -37,22 +39,7 @@
 		</dotml:graph>
 	</xsl:template>
 	
-	<!--
-    <Service id="EG" name="Customer Service">
-      <Publish>
-        <Message name="Customer Created" />
-        <Message name="Customer Updated" />
-      </Publish>
-      <Connections>
-        <Connection type="publish" name="Loans Service" id-ref="E1">
-          <Message name="Customer Updated" />
-        </Connection>
-        <Connection type="publish" name="Accounts Service" id-ref="EKC">
-          <Message name="Customer Created" />
-        </Connection>
-      </Connections>
-    </Service>
-	-->
+	<!-- Render the Service nodes either as a cluster or a single node -->
 	<xsl:template match='Service' mode='node'>
 		<xsl:choose>
 			<xsl:when test='string-length($cluster) = 0'>
@@ -79,34 +66,15 @@
 		</xsl:for-each>
 	</xsl:template>
 	
+	<!-- Render the links from published messages to services -->
 	<xsl:template match='Service' mode='link'>
 		<xsl:comment> Links for <xsl:value-of select='@name'/>  </xsl:comment>
 		<xsl:variable name="service" select='.'/>
-		<xsl:for-each select="Connections/Connection[@type='publish']/Message">
+		<xsl:for-each select="ServiceConnections/ServiceConnection[@type='publish']/Message">
 			<xsl:variable name='message-id' select="concat($service/@id, '_', @id-ref)"/>
 			<xsl:variable name='to' select='../@id-ref'/>
 			<dotml:edge from="{$message-id}" to="{$to}" color='{$message-color}' />
 		</xsl:for-each>
 	</xsl:template>
 
-<!--
-	<xsl:template match='cluster'>
-		<dotml:cluster id='{concat("cluster", position())}' 
-				label='{@name}' labeljust='l' labelloc="t" 
-				style='filled' fillcolor='{$focus-bgcolor}' color="{$focus-color}" 
-				fontname="{$fontname}" fontcolor="{$focus-color}" fontsize="{$font-size-h2}">
-			<xsl:apply-templates select='node'/>
-		</dotml:cluster>
-	</xsl:template>
-	
-	<xsl:template match='node'>
-		<dotml:node id='{@name}' style="solid" shape="box" label='{@name}' fillcolor='{$focus-bgcolor}' color="{$focus-color}" />
-	</xsl:template>
-	
-	<xsl:template match='cluster' mode='link'>
-		<xsl:for-each select='link'>
-			<dotml:edge from="{@from}" to="{@to}" color='{$other-color}' />
-		</xsl:for-each>
-	</xsl:template>
-	-->
 </xsl:stylesheet>
