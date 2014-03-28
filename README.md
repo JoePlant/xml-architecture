@@ -3,7 +3,12 @@ xml-architecture
 
 A simple xml representation for message flow architecture 
 
-Sample output showing a simple message flow
+Sample
+===
+
+There is a simple sample provided that shows how the xml representation and the generated output.
+
+Xml 
 ===
 ```xml
 <Architecture>
@@ -63,8 +68,10 @@ Sample output showing a simple message flow
 
 ```
 
+Output
+===
 Example of the services output
 
-![Services Output](../doc/Services.PNG)
+![Services Output](./doc/Services.PNG)
 
-![Services Output](../doc/Services2.PNG)
+![Services Output](./doc/Services2.PNG)
