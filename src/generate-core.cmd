@@ -13,9 +13,19 @@ set nxslt=..\lib\nxslt\nxslt.exe
 set graphviz=..\lib\GraphViz-2.30.1\bin
 set dotml=..\lib\dotml-1.4
 
+set bootstrap=..\lib\bootstrap-3.1.1
+set jquery=..\lib\jquery-1.11.0
+
+xcopy "%bootstrap%" %output%\lib\bootstrap /E /Y /I
+xcopy "%jquery%" %output%\lib\jquery /E /Y /I
+
 @echo === Model ===
 @echo Model = %model%
 %nxslt% %model% StyleSheets\generate-model.xslt -o Working\model.xml 
+
+@echo === HTML Pages ===
+%nxslt% Working\model.xml StyleSheets\render-services-table.xslt -o "%output%\services.html" 
+@echo   Generated: %output%\services.html
 
 @echo === Service Diagrams ===
 
