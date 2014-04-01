@@ -9,7 +9,7 @@ A very simple banking architecture is included here to show some of the outputs 
 
 Services View                      | Adapters View
 -----------------------------------|-----------------------------------
-![Services](./doc/Sample/services-label.png) | ![Adapters](./doc/Sample/adapters-top-label.png)
+![Services](./doc/Sample/services-top-label.png) | ![Adapters](./doc/Sample/adapters-top-label.png)
 
 ##Banking Sample
 ===
