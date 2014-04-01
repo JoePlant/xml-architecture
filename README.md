@@ -7,14 +7,16 @@ So, I constructed an xml view of the architecture and decided to output the arch
 
 A very simple banking architecture is included here to show some of the outputs that can be created.
 
-![Simple Services Output](./doc/Sample/services-label.png)
+Services View                      | Adapters View
+-----------------------------------|-----------------------------------
+![Services](./doc/Sample/services-label.png) | ![Adapters](./doc/Sample/adapters-top-label.png)
 
-Banking Sample
+##Banking Sample
 ===
 Simple banking scenario with 3 Services Customer, Loans and Accounts and some of the messages that flow between them.
 
-Configuration 
-===
+###Configuration###
+
 The xml configuration is pretty easy to understand and can be viewed here: [Source](./doc/Sample/Sample.xml)
 
 ```xml
@@ -79,29 +81,51 @@ Output
 ===
 The output from the tool is a set of PNG files generated using GraphViz.
 
-Services View
-===
-The Services view show the main services and the messages that are published.
+##Services View
 
+The Services view show the main services and the messages that are published.
+####Simple Services View
 Simple Services View shows the connections between the services (but not the messages)
 
 ![Simple Services Output](./doc/Sample/services-simple.png)
 
+####Services View
 Services View shows the connections between the services and the names of the messages
 
 ![Simple Services Output](./doc/Sample/services-label.png)
 
+####Services and Messages View
 Services and Messages view shows the services and messages as nodes.
 
 ![Services Output](./doc/Sample/services-node.png)
 
 
-Adapter Views
-===
-Soon...
+##Adapter Views
+The Adapters view shows the services as groupings and the adapters internally with the messages that are published.
+Each view is generated using a top to bottom approach and a left to right alternative.
 
-Messages Views
-===
+####Simple Adapters View
+Shows the Services and the Adapters and how they are connected by messages
+
+Top to Bottom                                        |  Left to Right
+-----------------------------------------------------|--------------------------------------------------------
+![Adapters Top](./doc/Sample/adapters-top-simple.png)|![Adapters Left](./doc/Sample/adapters-left-simple.png)
+
+####Adapters View
+Shows the Services and the Adapters and the messages that connect them
+
+Top to Bottom                                        |  Left to Right
+-----------------------------------------------------|--------------------------------------------------------
+![Adapters Top](./doc/Sample/adapters-top-label.png) |![Adapters Left](./doc/Sample/adapters-left-label.png)
+
+####Adapters and Messages View
+Shows the Services, Adapters and the messages as nodes and how they are connected
+
+Top to Bottom                                        |  Left to Right
+-----------------------------------------------------|--------------------------------------------------------
+![Adapters Top](./doc/Sample/adapters-top-node.png)  |![Adapters Left](./doc/Sample/adapters-left-node.png)
+
+###Messages Views###
 Soon...
 
 
