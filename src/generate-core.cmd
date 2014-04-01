@@ -19,19 +19,31 @@ set dotml=..\lib\dotml-1.4
 
 @echo === Service Diagrams ===
 
-%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-simple.dotml message-format=none title="Simple Services View" direction=TB
-%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-label.dotml message-format=label title="Services View" direction=TB
-%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-node.dotml message-format=node title="Services & Messages View" direction=LR
-%nxslt% Working\services-simple.dotml %dotml%\dotml2dot.xsl -o "Working\services-simple.gv" 
-%nxslt% Working\services-label.dotml %dotml%\dotml2dot.xsl -o "Working\services-label.gv" 
-%nxslt% Working\services-node.dotml %dotml%\dotml2dot.xsl -o "Working\services-node.gv" 
-%graphviz%\dot.exe -Tpng "Working\services-simple.gv"  -o "%output%\services-simple.png"
-%graphviz%\dot.exe -Tpng "Working\services-label.gv"  -o "%output%\services-label.png"
-%graphviz%\dot.exe -Tpng "Working\services-node.gv"  -o "%output%\services-node.png"
+%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-simple-tb.dotml message-format=none title="Simple Services View" direction=TB
+%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-label-tb.dotml message-format=label title="Services View" direction=TB
+%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-node-tb.dotml message-format=node title="Services & Messages View" direction=TB
+%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-simple-lr.dotml message-format=none title="Simple Services View" direction=LR
+%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-label-lr.dotml message-format=label title="Services View" direction=LR
+%nxslt% Working\model.xml StyleSheets\render-services.xslt -o Working\services-node-lr.dotml message-format=node title="Services & Messages View" direction=LR
+%nxslt% Working\services-simple-tb.dotml %dotml%\dotml2dot.xsl -o "Working\services-simple-tb.gv" 
+%nxslt% Working\services-label-tb.dotml %dotml%\dotml2dot.xsl -o "Working\services-label-tb.gv" 
+%nxslt% Working\services-node-tb.dotml %dotml%\dotml2dot.xsl -o "Working\services-node-tb.gv" 
+%nxslt% Working\services-simple-lr.dotml %dotml%\dotml2dot.xsl -o "Working\services-simple-lr.gv" 
+%nxslt% Working\services-label-lr.dotml %dotml%\dotml2dot.xsl -o "Working\services-label-lr.gv" 
+%nxslt% Working\services-node-lr.dotml %dotml%\dotml2dot.xsl -o "Working\services-node-lr.gv" 
+%graphviz%\dot.exe -Tpng "Working\services-simple-tb.gv"  -o "%output%\services-top-simple.png"
+%graphviz%\dot.exe -Tpng "Working\services-label-tb.gv"  -o "%output%\services-top-label.png"
+%graphviz%\dot.exe -Tpng "Working\services-node-tb.gv"  -o "%output%\services-top-node.png"
+%graphviz%\dot.exe -Tpng "Working\services-simple-lr.gv"  -o "%output%\services-left-simple.png"
+%graphviz%\dot.exe -Tpng "Working\services-label-lr.gv"  -o "%output%\services-left-label.png"
+%graphviz%\dot.exe -Tpng "Working\services-node-lr.gv"  -o "%output%\services-left-node.png"
 
-@echo   Generated: %output%\services-simple.png
-@echo   Generated: %output%\services-label.png
-@echo   Generated: %output%\services-node.png
+@echo   Generated: %output%\services-top-simple.png
+@echo   Generated: %output%\services-top-label.png
+@echo   Generated: %output%\services-top-node.png
+@echo   Generated: %output%\services-left-simple.png
+@echo   Generated: %output%\services-left-label.png
+@echo   Generated: %output%\services-left-node.png
 
 @echo === Adapter Diagrams ===
 
