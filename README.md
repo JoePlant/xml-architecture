@@ -87,17 +87,23 @@ The Services view show the main services and the messages that are published.
 ####Simple Services View
 Simple Services View shows the connections between the services (but not the messages)
 
-![Simple Services Output](./doc/Sample/services-simple.png)
+Top to Bottom                                        |  Left to Right
+-----------------------------------------------------|--------------------------------------------------------
+![Services Top](./doc/Sample/services-top-simple.png)|![Adapters Left](./doc/Sample/services-left-simple.png)
 
 ####Services View
 Services View shows the connections between the services and the names of the messages
 
-![Simple Services Output](./doc/Sample/services-label.png)
+Top to Bottom                                        |  Left to Right
+-----------------------------------------------------|--------------------------------------------------------
+![Services Top](./doc/Sample/services-top-label.png)|![Adapters Left](./doc/Sample/services-left-label.png)
 
 ####Services and Messages View
 Services and Messages view shows the services and messages as nodes.
 
-![Services Output](./doc/Sample/services-node.png)
+Top to Bottom                                        |  Left to Right
+-----------------------------------------------------|--------------------------------------------------------
+![Services Top](./doc/Sample/services-top-node.png)|![Adapters Left](./doc/Sample/services-left-node.png)
 
 
 ##Adapter Views
