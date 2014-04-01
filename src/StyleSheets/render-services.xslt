@@ -37,10 +37,10 @@
 	<xsl:variable name='font-size-h3'>8.0</xsl:variable>
 	
 	<xsl:template match="/" >
-		<xsl:apply-templates select="/Models/Services"/>
+		<xsl:apply-templates select="/ModelViews/ServicesView"/>
 	</xsl:template>
 	
-	<xsl:template match="/Models/Services">
+	<xsl:template match="/ModelViews/ServicesView">
 		<dotml:graph file-name="services" label="{$title}" rankdir="{$direction}" fontname="{$fontname}" fontsize="{$font-size-h1}" labelloc='t' >			
 			<xsl:apply-templates select='Service' mode='node'/>
 			<xsl:apply-templates select='Service' mode='link'/>
@@ -54,7 +54,7 @@
 				<xsl:call-template name='render-service'/>
 			</xsl:when>
 			<xsl:otherwise>
-				<dotml:cluster id='{concat("cluster", position())}' 
+				<dotml:cluster id='{concat("svc", @id)}' 
 					label='{@name}' labeljust='l' labelloc="t" 
 					style='filled' fillcolor='{$focus-bgcolor}' color="{$focus-color}" 
 					fontname="{$fontname}" fontcolor="{$focus-color}" fontsize="{$font-size-h2}"> 

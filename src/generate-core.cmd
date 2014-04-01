@@ -35,11 +35,31 @@ set dotml=..\lib\dotml-1.4
 
 @echo === Adapter Diagrams ===
 
-%nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters.dotml
-%nxslt% Working\adapters.dotml %dotml%\dotml2dot.xsl -o "Working\adapters.gv" 
-%graphviz%\dot.exe -Tpng "Working\adapters.gv"  -o "%output%\adapters.png"
+%nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters-node-tb.dotml message-format=node title="Adapters & Messages View" direction=TB
+%nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters-node-lr.dotml message-format=node title="Adapters & Messages View" direction=LR
+%nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters-label-tb.dotml message-format=label title="Adapters View" direction=TB
+%nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters-label-lr.dotml message-format=label title="Adapters View" direction=LR
+%nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters-simple-tb.dotml message-format=none title="Simple Adapters View" direction=TB
+%nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters-simple-lr.dotml message-format=none title="Simple Adapters View" direction=LR
+%nxslt% Working\adapters-node-tb.dotml %dotml%\dotml2dot.xsl -o "Working\adapters-node-tb.gv" 
+%nxslt% Working\adapters-node-lr.dotml %dotml%\dotml2dot.xsl -o "Working\adapters-node-lr.gv" 
+%nxslt% Working\adapters-label-tb.dotml %dotml%\dotml2dot.xsl -o "Working\adapters-label-tb.gv" 
+%nxslt% Working\adapters-label-lr.dotml %dotml%\dotml2dot.xsl -o "Working\adapters-label-lr.gv" 
+%nxslt% Working\adapters-simple-tb.dotml %dotml%\dotml2dot.xsl -o "Working\adapters-simple-tb.gv" 
+%nxslt% Working\adapters-simple-lr.dotml %dotml%\dotml2dot.xsl -o "Working\adapters-simple-lr.gv" 
+%graphviz%\dot.exe -Tpng "Working\adapters-node-tb.gv"  -o "%output%\adapters-top-node.png"
+%graphviz%\dot.exe -Tpng "Working\adapters-node-lr.gv"  -o "%output%\adapters-left-node.png"
+%graphviz%\dot.exe -Tpng "Working\adapters-label-tb.gv"  -o "%output%\adapters-top-label.png"
+%graphviz%\dot.exe -Tpng "Working\adapters-label-lr.gv"  -o "%output%\adapters-left-label.png"
+%graphviz%\dot.exe -Tpng "Working\adapters-simple-tb.gv"  -o "%output%\adapters-top-simple.png"
+%graphviz%\dot.exe -Tpng "Working\adapters-simple-lr.gv"  -o "%output%\adapters-left-simple.png"
 
-@echo   Generated: %output%\adapters.png
+@echo   Generated: %output%\adapters-top-node.png
+@echo   Generated: %output%\adapters-left-node.png
+@echo   Generated: %output%\adapters-top-label.png
+@echo   Generated: %output%\adapters-left-label.png
+@echo   Generated: %output%\adapters-top-simple.png
+@echo   Generated: %output%\adapters-left-simple.png
 
 goto end
 
