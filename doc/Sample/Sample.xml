@@ -1,5 +1,5 @@
 <Architecture>
-  <Service name='Customer Service'>
+  <Service name='Customer Service' short='Customer'>
     <Adapter name='Customer Details Application Adapter' application='Customer Details'>
       <Publish>
         <Message name='Customer Created'/>
@@ -7,7 +7,7 @@
       </Publish>
     </Adapter>
   </Service>
-  <Service name='Loans Service'>
+  <Service name='Loans Service' short='Loans'>
     <Adapter name='Loans Application Adapter' application='Loans'>
       <Publish>
         <Message name='Loan Created'/>
@@ -29,7 +29,7 @@
     </Adapter>
   </Service>
   
-  <Service name='Accounts Service'>
+  <Service name='Accounts Service' short='Accounts'>
     <Adapter name='Accounts Creation Application Adapter' application='Account Creation'>
       <Publish>
         <Message name='Account Created'/>
