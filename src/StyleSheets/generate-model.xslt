@@ -25,7 +25,7 @@
 			<MessagesView>
 				<xsl:for-each select='$messages'>
 					<xsl:sort select='@name'/>
-					<Message id='{generate-id(.)}' name="{@name}" publish-count="{count(key('pub-msg-by-name', @name))}" subscribe-count="{count(key('sub-msg-by-name', @name))}"/>
+					<Message id='{generate-id(.)}' index='{position()}' name="{@name}" publish-count="{count(key('pub-msg-by-name', @name))}" subscribe-count="{count(key('sub-msg-by-name', @name))}"/>
 				</xsl:for-each>
 			</MessagesView>
 			<ServicesView>
@@ -48,6 +48,7 @@
 			<xsl:if test='count($publish-messages) > 0'>
 				<xsl:element name='Publish'>
 					<xsl:for-each select='$publish-messages'>
+						<xsl:sort select='@name'/>
 						<xsl:call-template name='message-node'/>
 					</xsl:for-each>
 				</xsl:element>
@@ -56,6 +57,7 @@
 			<xsl:if test='count($subscribe-messages) > 0'>
 				<xsl:element name='Subscribe'>
 					<xsl:for-each select='$subscribe-messages'>
+						<xsl:sort select='@name'/>
 						<xsl:call-template name='message-node'/>
 					</xsl:for-each>
 				</xsl:element>
