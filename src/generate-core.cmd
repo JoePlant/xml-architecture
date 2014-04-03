@@ -18,6 +18,8 @@ set jquery=..\lib\jquery-1.11.0
 
 xcopy "%bootstrap%" %output%\lib\bootstrap /E /Y /I
 xcopy "%jquery%" %output%\lib\jquery /E /Y /I
+xcopy "css" %output%\css /E /Y /I
+
 
 @echo === Model ===
 @echo Model = %model%

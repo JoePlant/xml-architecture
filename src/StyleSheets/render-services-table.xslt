@@ -169,6 +169,7 @@
 
     <!-- Bootstrap -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/services.css" rel="stylesheet"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -178,11 +179,38 @@
     <![endif]-->
   </head>
   <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Services</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#top">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#adapters">Adapters</a></li>
+            <li><a href="#messages">Messages</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+  <a name='top'/>
   <div class="container">
 	<xsl:apply-templates select='/ModelViews/ServicesView' mode='table'/>
-	
-	</div>
-
+  </div>
+<hr/>
+  <a name='services'/>
+  <div class='container'>
+	<xsl:apply-templates select='/ModelViews/ServicesView' mode='list'/>
+  </div>
+  
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="lib/jquery/jquery.min.js"/>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
