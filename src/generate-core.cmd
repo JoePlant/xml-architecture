@@ -26,8 +26,8 @@ xcopy "css" %output%\css /E /Y /I
 %nxslt% %model% StyleSheets\generate-model.xslt -o Working\model.xml 
 
 @echo === HTML Pages ===
-%nxslt% Working\model.xml StyleSheets\render-services-table.xslt -o "%output%\services.html" 
-@echo   Generated: %output%\services.html
+%nxslt% Working\model.xml StyleSheets\render-html.xslt -o "%output%\index.html" 
+@echo   Generated: %output%\index.html
 
 @echo === Service Diagrams ===
 
