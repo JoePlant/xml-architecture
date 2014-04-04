@@ -16,25 +16,8 @@
 	<xsl:param name='title'>Services</xsl:param>
 	
 	<xsl:param name='direction'>LR</xsl:param>
-	
-	<xsl:variable name="record-color">#EEEEEE</xsl:variable>
-	<xsl:variable name="border-color">#AAAAAA</xsl:variable>
-	<xsl:variable name="background-color">#FFFFFF</xsl:variable>
-	<xsl:variable name="message-color">#87D200</xsl:variable>
-	
-	<xsl:variable name="focus-color">#C4014B</xsl:variable>
-	<xsl:variable name="focus-bgcolor">#EEEEEE</xsl:variable>
-	<xsl:variable name="focus-text-color">#FFFFFF</xsl:variable>
-	<xsl:variable name="other-color">#333333</xsl:variable>
-	
-	<xsl:variable name="material-other">#CCCCCC</xsl:variable>
-	<xsl:variable name="workcenter-color">#2FB4E9</xsl:variable>
-	<xsl:variable name="red-color">#FF0000</xsl:variable>
-	
-	<xsl:variable name='fontname'>Verdana</xsl:variable>
-	<xsl:variable name='font-size-h1'>10.0</xsl:variable>
-	<xsl:variable name='font-size-h2'>9.0</xsl:variable>
-	<xsl:variable name='font-size-h3'>8.0</xsl:variable>
+
+	<xsl:include href='include-graphs-colours.xslt'/>
 	
 	<xsl:template match="/" >
 		<xsl:apply-templates select="/ModelViews/ServicesView"/>
