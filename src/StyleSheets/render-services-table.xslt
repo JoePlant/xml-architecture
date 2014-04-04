@@ -135,7 +135,7 @@
 				</xsl:for-each>
 			</small>
 			<small id='{concat($id, @id)}' class='collapse'>
-				
+				<ul>
 				<xsl:for-each select='$messages'>
 					<xsl:variable name='msg' select="key('messages-by-id', @id-ref)"/>
 					<li><span class='label label-default'><xsl:value-of select='$msg/@index'/></span>
@@ -143,7 +143,7 @@
 					<xsl:value-of select='$msg/@name'/>
 					</li>
 				</xsl:for-each>
-				
+				</ul>
 			</small>
 		</th>
 	</xsl:template>

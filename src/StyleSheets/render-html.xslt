@@ -10,6 +10,7 @@
      indent="yes" />
 
 	<xsl:include href='render-services-table.xslt'/>
+	<xsl:include href='render-services-list.xslt'/>
 	
 	<xsl:key name='messages-by-id' match='Message[@id]' use='@id'/>
 	
@@ -52,9 +53,9 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#top">Home</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#services">Services <span class='badge'><xsl:value-of select='count(/ModelViews/ServicesView/Service)'/></span></a></li>
             <li><a href="#adapters">Adapters</a></li>
-            <li><a href="#messages">Messages</a></li>
+            <li><a href="#messages">Messages <span class='badge'><xsl:value-of select='count(/ModelViews/MessagesView/Message)'/></span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
