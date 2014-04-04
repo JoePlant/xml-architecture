@@ -12,6 +12,7 @@ mkdir Working
 set nxslt=..\lib\nxslt\nxslt.exe
 set graphviz=..\lib\GraphViz-2.30.1\bin
 set dotml=..\lib\dotml-1.4
+set xsltproc=..\lib\libxml\bin\xsltproc.exe 
 
 set bootstrap=..\lib\bootstrap-3.1.1
 set jquery=..\lib\jquery-1.11.0
@@ -56,6 +57,9 @@ xcopy "css" %output%\css /E /Y /I
 @echo   Generated: %output%\services-left-simple.png
 @echo   Generated: %output%\services-left-label.png
 @echo   Generated: %output%\services-left-node.png
+
+@echo === Graphs ===
+%xsltproc% -o Working\graph.files.xml StyleSheets\generate-graphs-dotml.xslt Working\model.xml
 
 @echo === Adapter Diagrams ===
 
