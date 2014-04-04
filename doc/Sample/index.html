@@ -30,13 +30,13 @@
               <a href="#top">Home</a>
             </li>
             <li>
-              <a href="#services">Services</a>
+              <a href="#services">Services <span class="badge">3</span></a>
             </li>
             <li>
               <a href="#adapters">Adapters</a>
             </li>
             <li>
-              <a href="#messages">Messages</a>
+              <a href="#messages">Messages <span class="badge">9</span></a>
             </li>
           </ul>
         </div>
@@ -67,14 +67,16 @@
                 <span class="label label-info" title="Loan Updated">9</span>
               </small>
               <small id="pub-EX" class="collapse">
-                <li>
-                  <span class="label label-default">6</span> Loan Approved</li>
-                <li>
-                  <span class="label label-default">7</span> Loan Created</li>
-                <li>
-                  <span class="label label-default">8</span> Loan Payment</li>
-                <li>
-                  <span class="label label-default">9</span> Loan Updated</li>
+                <ul>
+                  <li>
+                    <span class="label label-default">6</span> Loan Approved</li>
+                  <li>
+                    <span class="label label-default">7</span> Loan Created</li>
+                  <li>
+                    <span class="label label-default">8</span> Loan Payment</li>
+                  <li>
+                    <span class="label label-default">9</span> Loan Updated</li>
+                </ul>
               </small>
             </th>
             <th class="info" data-toggle="collapse" href="#pub-EGC">
@@ -86,12 +88,14 @@
                 <span class="label label-info" title="Account Debited">3</span>
               </small>
               <small id="pub-EGC" class="collapse">
-                <li>
-                  <span class="label label-default">1</span> Account Created</li>
-                <li>
-                  <span class="label label-default">2</span> Account Credited</li>
-                <li>
-                  <span class="label label-default">3</span> Account Debited</li>
+                <ul>
+                  <li>
+                    <span class="label label-default">1</span> Account Created</li>
+                  <li>
+                    <span class="label label-default">2</span> Account Credited</li>
+                  <li>
+                    <span class="label label-default">3</span> Account Debited</li>
+                </ul>
               </small>
             </th>
             <th class="info" data-toggle="collapse" href="#pub-EE">
@@ -102,10 +106,12 @@
                 <span class="label label-info" title="Customer Updated">5</span>
               </small>
               <small id="pub-EE" class="collapse">
-                <li>
-                  <span class="label label-default">4</span> Customer Created</li>
-                <li>
-                  <span class="label label-default">5</span> Customer Updated</li>
+                <ul>
+                  <li>
+                    <span class="label label-default">4</span> Customer Created</li>
+                  <li>
+                    <span class="label label-default">5</span> Customer Updated</li>
+                </ul>
               </small>
             </th>
           </tr>
@@ -120,14 +126,16 @@
                 <span class="label label-info" title="Loan Payment">8</span>
               </small>
               <small id="sub-EGC" class="collapse">
-                <li>
-                  <span class="label label-default">1</span> Account Created</li>
-                <li>
-                  <span class="label label-default">4</span> Customer Created</li>
-                <li>
-                  <span class="label label-default">6</span> Loan Approved</li>
-                <li>
-                  <span class="label label-default">8</span> Loan Payment</li>
+                <ul>
+                  <li>
+                    <span class="label label-default">1</span> Account Created</li>
+                  <li>
+                    <span class="label label-default">4</span> Customer Created</li>
+                  <li>
+                    <span class="label label-default">6</span> Loan Approved</li>
+                  <li>
+                    <span class="label label-default">8</span> Loan Payment</li>
+                </ul>
               </small>
             </th>
             <td class="success" data-toggle="collapse" href="#EGC_EX">
@@ -169,8 +177,10 @@
                 <span class="label label-info" title="Customer Updated">5</span>
               </small>
               <small id="sub-EX" class="collapse">
-                <li>
-                  <span class="label label-default">5</span> Customer Updated</li>
+                <ul>
+                  <li>
+                    <span class="label label-default">5</span> Customer Updated</li>
+                </ul>
               </small>
             </th>
             <td>
@@ -193,69 +203,167 @@
       <a name="services">
       </a>
       <h3>Services</h3>
-    
-      
-        
-        
-      
-      
-        
-          
-        
-        
-          
-        
-      
-    
-    
-      
-        
-        
-        
-        
-      
-      
-        
-      
-      
-        
-          
-          
-        
-        
-          
-        
-      
-    
-    
-      
-        
-        
-        
-      
-      
-        
-        
-        
-        
-      
-      
-        
-          
-        
-        
-          
-        
-        
-          
-          
-        
-        
-          
-        
-      
-    
-  <hr><a name="adapters"></a><h3>Adapters</h3><hr><a name="messages"></a><h3>Messages</h3></div>
+      <table class="table table-bordered table-hover">
+        <tr>
+          <td class="bg-info" colspan="5">
+            <h4>Accounts <small>Accounts Service</small><span class="pull-right"><small><span class="text-muted">Published: </span> <span class="badge" title="Published messages">3</span>   <span class="text-muted">Subscribed: </span> <span class="badge" title="Subscribed messages">4</span></small></span></h4>
+          </td>
+        </tr>
+        <!--
+				Rows: 3
+				Subscribed connections: 3
+				Published connections: 1-->
+        <!-- Row No: 1 of 3-->
+        <tr>
+          <!-- Row No: 1 of 3 (Customer Service)-->
+          <td class="text-center">
+            <div class="btn btn-info" disabled="disabled">Customer Service</div>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">4</span>
+              <span class="label label-default">Customer Created</span>
+            </div>
+          </td>
+          <td class="text-center" rowspan="3">
+            <div class="btn btn-primary btn-lg" disabled="disabled">Accounts Service</div>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">1</span> <span class="label label-default">Account Created</span></div>
+          </td>
+          <td class="text-center">
+            <div class="btn btn-default" disabled="disabled">Accounts Service</div>
+          </td>
+        </tr>
+        <!-- Row No: 2 of 3-->
+        <tr>
+          <!-- Row No: 2 of 3 (Loans Service)-->
+          <td class="text-center">
+            <div class="btn btn-info" disabled="disabled">Loans Service</div>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">6</span>
+              <span class="label label-default">Loan Approved</span>
+            </div>
+            <div>
+              <span class="label label-warning">8</span>
+              <span class="label label-default">Loan Payment</span>
+            </div>
+          </td>
+          <!--Row: 2-->
+          <td>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <!-- Row No: 3 of 3-->
+        <tr>
+          <!-- Row No: 3 of 3 (Accounts Service)-->
+          <td class="text-center">
+            <div class="btn btn-default" disabled="disabled">Accounts Service</div>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">1</span>
+              <span class="label label-default">Account Created</span>
+            </div>
+          </td>
+          <!--Row: 3-->
+          <td>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td class="bg-info" colspan="5">
+            <h4>Loans <small>Loans Service</small><span class="pull-right"><small><span class="text-muted">Published: </span> <span class="badge" title="Published messages">4</span>   <span class="text-muted">Subscribed: </span> <span class="badge" title="Subscribed messages">1</span></small></span></h4>
+          </td>
+        </tr>
+        <!--
+				Rows: 1
+				Subscribed connections: 1
+				Published connections: 1-->
+        <!-- Row No: 1 of 1-->
+        <tr>
+          <!-- Row No: 1 of 1 (Customer Service)-->
+          <td class="text-center">
+            <div class="btn btn-info" disabled="disabled">Customer Service</div>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">5</span>
+              <span class="label label-default">Customer Updated</span>
+            </div>
+          </td>
+          <td class="text-center" rowspan="1">
+            <div class="btn btn-primary btn-lg" disabled="disabled">Loans Service</div>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">6</span> <span class="label label-default">Loan Approved</span></div>
+            <div>
+              <span class="label label-warning">8</span> <span class="label label-default">Loan Payment</span></div>
+          </td>
+          <td class="text-center">
+            <div class="btn btn-info" disabled="disabled">Accounts Service</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="bg-info" colspan="5">
+            <h4>Customer <small>Customer Service</small><span class="pull-right"><small><span class="text-muted">Published: </span> <span class="badge" title="Published messages">2</span>   </small></span></h4>
+          </td>
+        </tr>
+        <!--
+				Rows: 2
+				Subscribed connections: 0
+				Published connections: 2-->
+        <!-- Row No: 1 of 2-->
+        <tr>
+          <!-- Row No: 1 of 0 ()-->
+          <!--Row: 1-->
+          <td>
+          </td>
+          <td>
+          </td>
+          <td class="text-center" rowspan="2">
+            <div class="btn btn-primary btn-lg" disabled="disabled">Customer Service</div>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">5</span> <span class="label label-default">Customer Updated</span></div>
+          </td>
+          <td class="text-center">
+            <div class="btn btn-info" disabled="disabled">Loans Service</div>
+          </td>
+        </tr>
+        <!-- Row No: 2 of 2-->
+        <tr>
+          <!-- Row No: 2 of 0 ()-->
+          <!--Row: 2-->
+          <td>
+          </td>
+          <td>
+          </td>
+          <td class="text-left">
+            <div>
+              <span class="label label-warning">4</span> <span class="label label-default">Customer Created</span></div>
+          </td>
+          <td class="text-center">
+            <div class="btn btn-info" disabled="disabled">Accounts Service</div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <a name="adapters">
+      </a>
+      <h3>Adapters</h3>
+      <hr>
+      <a name="messages">
+      </a>
+      <h3>Messages</h3>
+    </div>
     <hr>
     <script src="lib/jquery/jquery.min.js">
     </script>
