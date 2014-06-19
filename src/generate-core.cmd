@@ -9,6 +9,13 @@ if EXIST Working goto Working_exists
 mkdir Working
 :Working_exists
 
+if EXIST %output%\Graphs goto graphs_exists
+mkdir %output%\Graphs
+:graphs_exists
+
+del Working\Graphs\*.* /Q
+del %output%\Graphs\*.* /Q
+
 set nxslt=..\lib\nxslt\nxslt.exe
 set graphviz=..\lib\GraphViz-2.30.1\bin
 set dotml=..\lib\dotml-1.4
@@ -20,7 +27,6 @@ set jquery=..\lib\jquery-1.11.0
 xcopy "%bootstrap%" %output%\lib\bootstrap /E /Y /I
 xcopy "%jquery%" %output%\lib\jquery /E /Y /I
 xcopy "css" %output%\css /E /Y /I
-
 
 @echo === Model ===
 @echo Model = %model%
@@ -61,6 +67,10 @@ xcopy "css" %output%\css /E /Y /I
 @echo === Graphs ===
 %xsltproc% -o Working\graph.files.xml StyleSheets\generate-graphs-dotml.xslt Working\model.xml
 
+cd Working\Graphs
+for /F "usebackq" %%i in (`dir /b *.cmd`) DO call %%i
+cd ..\..
+
 @echo === Adapter Diagrams ===
 
 %nxslt% Working\model.xml StyleSheets\render-adapters.xslt -o Working\adapters-node-tb.dotml message-format=node title="Adapters & Messages View" direction=TB
@@ -98,4 +108,4 @@ echo Model=%model%
 echo OutputDir=%output%
 
 :end
-pause
+rem pause

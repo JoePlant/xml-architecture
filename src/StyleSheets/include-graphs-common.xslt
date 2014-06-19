@@ -8,11 +8,11 @@
 
 	<xsl:output method="xml" indent="yes"/>
 	
-	<xsl:variable name="path-nxslt"    >..\..\lib\nxslt\nxslt.exe </xsl:variable>
-	<xsl:variable name="path-graphviz" >..\..\lib\GraphViz-2.30.1\bin\</xsl:variable>
+	<xsl:variable name="path-nxslt"      >..\..\..\lib\nxslt\nxslt.exe </xsl:variable>
+	<xsl:variable name="path-graphviz"   >..\..\..\lib\GraphViz-2.30.1\bin\</xsl:variable>
 	<xsl:variable name="graphviz-options"> -Tpng </xsl:variable>
-	<xsl:variable name="path-dotml"    >..\..\lib\dotml-1.4\dotml2dot.xsl </xsl:variable>
-	<xsl:variable name="path-png"		>..\..\Output\Graphs\</xsl:variable>
+	<xsl:variable name="path-dotml"      >..\..\..\lib\dotml-1.4\dotml2dot.xsl </xsl:variable>
+	<xsl:variable name="path-png"		 >.\</xsl:variable>
 
 	<xsl:variable name="crlf" select="'&#xD;&#xA;'"/>
 	<xsl:variable name="quote">'</xsl:variable>
@@ -36,7 +36,7 @@
 			<xsl:apply-templates select='.' mode='graph-options'/>
 		</xsl:variable>
 		<xsl:variable name='command'>
-			<xsl:text>REM Drawing - </xsl:text><xsl:value-of select='@fullName'/>
+			<xsl:text>@echo Drawing - </xsl:text><xsl:value-of select='name()'/> - <xsl:value-of select='@name'/>
 			<xsl:value-of select='$crlf'/>
 			<xsl:text>REM Convert "</xsl:text><xsl:value-of select="$dotml-filename"/>" to "<xsl:value-of select="concat($path-png, $png-filename)"/><xsl:text>"</xsl:text>
 			<xsl:value-of select="concat($crlf, $path-nxslt, $dotml-filename, ' ', $path-dotml, ' -o ', $gv-filename)" /> 
